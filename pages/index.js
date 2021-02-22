@@ -1,8 +1,7 @@
+import Link from 'next/link'
 import Layout from '../components/layout'
 
 function Home({props}) {
-  console.log(props.stories.length)
-
   return (
     <Layout title='Home'>
       <div className="flex bg-white" style={{ height: 600 + 'px' }}>
@@ -128,12 +127,16 @@ function Home({props}) {
                   <div className="flex flex-row flex-wrap mx-auto">
                       {props.stories.slice(0, (props.stories.length <6) ? 3 : 6).map(e => (
                         <div className="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3" key={e.id}>
-                            <div
-                                className="flex flex-col items-stretch min-h-full transition-all duration-150 bg-white rounded-lg shadow-lg hover:shadow-2xl">
-                                <div className="md:flex-shrink-0">
-                                    <img src={(e.content.teaser_image == null) ? 'img/logo.png' : e.content.teaser_image} alt="Image cover" className="object-cover w-full rounded-lg md:h-56" />
-                                </div>
-                            </div>
+                            <Link href={{ pathname: '/product/' + e.slug }}>
+                                <a>
+                                    <div
+                                    className="flex flex-col items-stretch min-h-full transition-all duration-150 bg-white rounded-lg shadow-lg hover:shadow-2xl">
+                                        <div className="md:flex-shrink-0">
+                                            <img src={(e.content.teaser_image == null) ? 'img/logo.png' : e.content.teaser_image} alt="Image cover" className="object-cover w-full rounded-lg md:h-56" />
+                                        </div>
+                                    </div>
+                                </a>
+                            </Link>
                         </div>
                       ))}
                   </div>
@@ -145,7 +148,7 @@ function Home({props}) {
 }
 
 Home.getInitialProps = async function () {
-  const res = await fetch('https://api.storyblok.com/v1/cdn/stories/?starts_with=article/&token=qrqmpGcIFKyE5WgF55Vawgtt')
+  const res = await fetch('https://api.storyblok.com/v1/cdn/stories/?starts_with=article&is_startpage=false&token=qrqmpGcIFKyE5WgF55Vawgtt')
   const json = await res.json()
 
   return {props: json}

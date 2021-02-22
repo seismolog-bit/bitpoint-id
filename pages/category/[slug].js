@@ -1,25 +1,18 @@
-import Layout from '../components/layout'
-import Link from 'next/link'
+import Link from "next/link"
+import Layout from "../../components/layout"
 
-export default function Product({props}) {
+export default function Category({props, category}) {
     return (
-        <>
-            <Layout title='Product'>
-                <div className="hero bg-gray-100 py-16">
+        <Layout title='Categories '>
+            <div className="hero bg-gray-100 py-16">
                     <div className="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
                         <div className="hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
                             <div className="hero-text col-span-6">
                                 
-                                <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Product</h2>
+                                <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Category {category.name}</h2>
                                 <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                                     A better way to send money
-                                </p>
-                                <hr className="w-12 h-1 bg-orange-500 rounded-full mt-8" />
-                                <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                                    Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate
-                                    veritatis in
-                                    accusamus quisquam.
                                 </p>
                                 
                             </div>
@@ -30,7 +23,7 @@ export default function Product({props}) {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className='mt-10'>
                             <div className="flex flex-row flex-wrap mx-auto">
-                                {props.stories.map(e => (
+                                {props.map(e => (
                                     <div className="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3" key={e.id}>
                                         <Link href={{ pathname: `/product/${e.slug}` }}>
                                             <a>
@@ -47,14 +40,14 @@ export default function Product({props}) {
                         </div>
                     </div>
                 </div>
-            </Layout>
-        </>
+        </Layout>
     )
 }
 
-Product.getInitialProps = async function() {
-    const rest = await fetch('https://api.storyblok.com/v1/cdn/stories/?starts_with=article&is_startpage=false&token=qrqmpGcIFKyE5WgF55Vawgtt')
+Category.getInitialProps = async function({ query }) {
+    const rest = await fetch('https://api.storyblok.com/v1/cdn/stories/?starts_with=article&token=qrqmpGcIFKyE5WgF55Vawgtt&filter_query[categories][exists]=' + query.slug)
+    const category = await fetch(`https://api.storyblok.com/v1/cdn/stories/${query.slug}?token=qrqmpGcIFKyE5WgF55Vawgtt&find_by=uuid`)
     const json = await rest.json()
 
-    return {props: json}
+    return {props: json.stories, category: category}
 }
