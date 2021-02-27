@@ -28,10 +28,10 @@ function Header() {
                         </div>
                     </div>
                     <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-                        <Link href={{ pathname: '/product' }}><a  className={ 'font-medium text-gray-500 hover:text-gray-900'}>Product</a></Link>
+                        <Link href={{ pathname: '/portfolio' }}><a  className={ 'font-medium text-gray-500 hover:text-gray-900'}>Product</a></Link>
                         <Link href={{ pathname: '/about' }}><a  className='font-medium text-gray-500 hover:text-gray-900'>About</a></Link>
                         <Link href={{ pathname: '/contact' }}><a  className='font-medium text-gray-500 hover:text-gray-900'>Contact</a></Link>
-                        <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">Whatsapp</a>
+                        <a href='https://wa.me/6283897122272' target='__blank' className="font-medium text-indigo-600 hover:text-indigo-500">Whatsapp</a>
                     </div>
                 </nav>
             </div>
@@ -56,12 +56,12 @@ function Header() {
                     </div>
                     <div role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
                         <div className="px-2 pt-2 pb-3 space-y-1" role="none">
-                        <Link href={{ pathname: '/product' }} ><a className='block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50' role='menuitem'>Product</a></Link>
+                        <Link href={{ pathname: '/portfolio' }} ><a className='block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50' role='menuitem'>Product</a></Link>
                         <Link href={{ pathname: '/about' }} ><a className='block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50' role='menuitem'>About</a></Link>
                         <Link href={{ pathname: '/contact' }} ><a className='block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50' role='menuitem'>Contact</a></Link>
                         </div>
                         <div role="none">
-                        <a href="#" className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100" role="menuitem">
+                        <a href='https://wa.me/6283897122272' target='__blank' className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100" role="menuitem">
                             Whatsapp
                         </a>
                         </div>

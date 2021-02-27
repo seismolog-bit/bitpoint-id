@@ -3,23 +3,21 @@ import Link from 'next/link'
 
 export default function Product({props}) {
     return (
-        <>
+        // <>
             <Layout title='Product'>
                 <div className="hero bg-gray-100 py-16">
-                    <div className="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
+                    <div className="container px-4 sm:px-8 lg:px-8 mx-auto">
                         <div className="hero-wrapper grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
                             <div className="hero-text col-span-6">
                                 
                                 <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Product</h2>
                                 <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                                    A better way to send money
+                                    Lihat apa yang kami kerjakan
                                 </p>
                                 <hr className="w-12 h-1 bg-orange-500 rounded-full mt-8" />
                                 <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                                    Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate
-                                    veritatis in
-                                    accusamus quisquam.
+                                    Website dan Aplikasi yang kami buat akan mendapatkan dukungan teknis untuk pengelolaan yang lebih baik.
                                 </p>
                                 
                             </div>
@@ -28,11 +26,11 @@ export default function Product({props}) {
                 </div>
                 <div className='py-12 bg-white'>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className='mt-10'>
+                        {/* <div className='mt-10'> */}
                             <div className="flex flex-row flex-wrap mx-auto">
                                 {props.stories.map(e => (
                                     <div className="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3" key={e.id}>
-                                        <Link href={{ pathname: `/product/${e.slug}` }}>
+                                        <Link href={{ pathname: `/portfolio/${e.slug}` }}>
                                             <a>
                                                 <div className="flex flex-col items-stretch min-h-full transition-all duration-150 bg-white rounded-lg shadow-lg hover:shadow-2xl">
                                                     <div className="md:flex-shrink-0">
@@ -44,11 +42,11 @@ export default function Product({props}) {
                                     </div>
                                 ))}
                             </div>
-                        </div>
+                        {/* </div> */}
                     </div>
                 </div>
             </Layout>
-        </>
+        // </>
     )
 }
 

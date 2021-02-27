@@ -26,7 +26,7 @@ function Home({props}) {
       </div>
       <div id='service' className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="lg:text-center">
+              <div className="lg:text-center py-4 lg:py-12">
                   <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Layanan</h2>
                   <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                       Cara tepat untuk menuangkan ide
@@ -34,7 +34,7 @@ function Home({props}) {
               </div>
 
               <div className="mt-10">
-                  <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                  <dl className="max-w-screen-lg mx-auto space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
                       <div className="flex">
                           <div className="flex-shrink-0">
                               <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
@@ -117,17 +117,17 @@ function Home({props}) {
       </div>
       <div className='py-12 bg-white'>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="lg:text-center">
+              <div className="lg:text-center py-4 lg:py-12">
                   <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Portfolio</h2>
                   <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                      A better way to send money
+                      Mari lihat apa yang kami kerjakan
                   </p>
               </div>
-              <div className='mt-10'>
-                  <div className="flex flex-row flex-wrap mx-auto">
+              {/* <div className='mt-10'> */}
+                  <div className="flex max-w-screen-lg flex-row flex-wrap mx-auto">
                       {props.stories.slice(0, (props.stories.length <6) ? 3 : 6).map(e => (
-                        <div className="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3" key={e.id}>
-                            <Link href={{ pathname: '/product/' + e.slug }}>
+                        <div className="transition-all duration-150 flex w-full px-4 lg:px-2 py-4 md:w-1/2 lg:w-1/3" key={e.id}>
+                            <Link href={{ pathname: '/portfolio/' + e.slug }}>
                                 <a>
                                     <div
                                     className="flex flex-col items-stretch min-h-full transition-all duration-150 bg-white rounded-lg shadow-lg hover:shadow-2xl">
@@ -140,7 +140,7 @@ function Home({props}) {
                         </div>
                       ))}
                   </div>
-              </div>
+              {/* </div> */}
           </div>
       </div>
     </Layout>
